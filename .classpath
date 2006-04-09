@@ -11,7 +11,7 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/entity-api"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/courier-api"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/util"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/webapp-api"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/tool-api"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/component-api"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/db-api"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/authz-api"/>
