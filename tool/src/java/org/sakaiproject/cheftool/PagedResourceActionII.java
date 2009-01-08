@@ -120,7 +120,8 @@ public abstract class PagedResourceActionII extends VelocityPortletPaneledAction
 	 */
 	protected int totalPageNumber(SessionState state)
 	{
-		return ((Integer) state.getAttribute(STATE_TOTAL_PAGENUMBER)).intValue();
+		return state.getAttribute(STATE_TOTAL_PAGENUMBER) != null ?
+				((Integer) state.getAttribute(STATE_TOTAL_PAGENUMBER)).intValue() : 1;
 
 	} // totalPageNumber
 
@@ -236,8 +237,9 @@ public abstract class PagedResourceActionII extends VelocityPortletPaneledAction
 	protected List prepPage(SessionState state)
 	{
 		// access the page size
-		int pageSize = ((Integer) state.getAttribute(STATE_PAGESIZE)).intValue();
-
+		int pageSize = state.getAttribute(STATE_PAGESIZE) != null ?
+				((Integer) state.getAttribute(STATE_PAGESIZE)).intValue() : DEFAULT_PAGE_SIZE;
+		
 		// cleanup prior prep
 		state.removeAttribute(STATE_NUM_MESSAGES);
 
@@ -299,7 +301,8 @@ public abstract class PagedResourceActionII extends VelocityPortletPaneledAction
 		if (state.getAttribute(STATE_GOTO_PAGE) != null)
 		{
 			int gotoPage = ((Integer) state.getAttribute(STATE_GOTO_PAGE)).intValue();
-			int currentPage = ((Integer) state.getAttribute(STATE_CURRENT_PAGE)).intValue();
+			int currentPage = state.getAttribute(STATE_CURRENT_PAGE) != null ?
+					((Integer) state.getAttribute(STATE_CURRENT_PAGE)).intValue() : 0;
 			posStart += pageSize * (gotoPage - currentPage);
 		}
 
@@ -338,7 +341,6 @@ public abstract class PagedResourceActionII extends VelocityPortletPaneledAction
 		// compute the end to a page size, adjusted for the number of messages available
 		int posEnd = posStart + (pageSize - 1);
 		if (posEnd >= numMessages) posEnd = numMessages - 1;
-		int numMessagesOnThisPage = (posEnd - posStart) + 1;
 
 		// select the messages on this page
 		List messagePage = readResourcesPage(state, posStart + 1, posEnd + 1);
@@ -543,7 +545,8 @@ public abstract class PagedResourceActionII extends VelocityPortletPaneledAction
 		state.setAttribute(STATE_GO_NEXT, "");
 
 		// set the page number
-		int page = ((Integer) state.getAttribute(STATE_CURRENT_PAGE)).intValue();
+		int page = state.getAttribute(STATE_CURRENT_PAGE) != null ?
+				((Integer) state.getAttribute(STATE_CURRENT_PAGE)).intValue() : 1;
 		state.setAttribute(STATE_CURRENT_PAGE, new Integer(page + 1));
 
 	} // doView_next
@@ -597,7 +600,8 @@ public abstract class PagedResourceActionII extends VelocityPortletPaneledAction
 		// %%% ?? doList(runData, context);
 
 		// set the page number
-		int page = ((Integer) state.getAttribute(STATE_CURRENT_PAGE)).intValue();
+		int page = state.getAttribute(STATE_CURRENT_PAGE) != null ?
+				((Integer) state.getAttribute(STATE_CURRENT_PAGE)).intValue() : 1;
 		state.setAttribute(STATE_CURRENT_PAGE, new Integer(page + 1));
 
 	} // doList_next
@@ -615,7 +619,8 @@ public abstract class PagedResourceActionII extends VelocityPortletPaneledAction
 		state.setAttribute(STATE_GO_PREV, "");
 
 		// set the page number
-		int page = ((Integer) state.getAttribute(STATE_CURRENT_PAGE)).intValue();
+		int page = state.getAttribute(STATE_CURRENT_PAGE) != null ?
+				((Integer) state.getAttribute(STATE_CURRENT_PAGE)).intValue() : 2;
 		state.setAttribute(STATE_CURRENT_PAGE, new Integer(page - 1));
 
 	} // doView_prev
@@ -633,7 +638,8 @@ public abstract class PagedResourceActionII extends VelocityPortletPaneledAction
 		state.setAttribute(STATE_GO_PREV_PAGE, "");
 
 		// set the page number
-		int page = ((Integer) state.getAttribute(STATE_CURRENT_PAGE)).intValue();
+		int page = state.getAttribute(STATE_CURRENT_PAGE) != null ?
+				((Integer) state.getAttribute(STATE_CURRENT_PAGE)).intValue() : 2;
 		state.setAttribute(STATE_CURRENT_PAGE, new Integer(page - 1));
 
 	} // doList_prev
