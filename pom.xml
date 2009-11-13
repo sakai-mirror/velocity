@@ -12,9 +12,9 @@
   <artifactId>velocity-base</artifactId>
   <packaging>pom</packaging>
   <scm>
-    <connection>scm:svn:https://source.sakaiproject.org/svn/velocity/trunk</connection>
-    <developerConnection>scm:svn:https://source.sakaiproject.org/svn/velocity/trunk</developerConnection>
-    <url>https://source.sakaiproject.org/svn/velocity/trunk</url>
+    <connection>scm:svn:https://source.sakaiproject.org/svn/velocity/branches/sakai-2.7.x</connection>
+    <developerConnection>scm:svn:https://source.sakaiproject.org/svn/velocity/branches/sakai-2.7.x</developerConnection>
+    <url>https://source.sakaiproject.org/svn/velocity/branches/sakai-2.7.x</url>
   </scm>
   <modules>
     <module>tool</module>
