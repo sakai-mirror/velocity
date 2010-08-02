@@ -445,7 +445,11 @@ public abstract class VelocityPortletPaneledAction extends ToolServlet
 		}
 		catch (NoSuchMethodException e)
 		{
-			throw new ToolException(e);
+			try {
+				res.sendError(HttpServletResponse.SC_BAD_REQUEST, "NoSuchMethodException for panel name");
+			} catch (IOException e1) {
+				// ignore
+			}
 		}
 		catch (IllegalAccessException e)
 		{
