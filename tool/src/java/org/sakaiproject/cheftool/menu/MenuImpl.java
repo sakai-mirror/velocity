@@ -21,6 +21,7 @@
 
 package org.sakaiproject.cheftool.menu;
 
+import java.io.Serializable;
 import java.util.List;
 import java.util.Vector;
 
@@ -34,7 +35,7 @@ import org.sakaiproject.cheftool.api.MenuItem;
  * Menu is an ordered list of MenuItems.
  * </p>
  */
-public class MenuImpl implements Menu
+public class MenuImpl implements Menu, Serializable
 {
 	/** The menu's title. */
 	protected String m_title = null;
